@@ -3,9 +3,7 @@ import './Header.scss';
 
 const Header = () => {
   return <header>
-      <div className="container">
-        <h1>Brick</h1>
-      </div>
+	<h1>Brick</h1>
   </header>
 }
 
