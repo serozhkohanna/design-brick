@@ -1,0 +1,80 @@
+@import "src/assets/variables";
+
+.card-section {
+  margin-bottom: 70px;
+
+  .card-main {
+    .card-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .left-side {
+      max-width: 450px;
+      width: 100%;
+
+      .name-holder {
+        background: #fff;
+        height: 300px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: $border-radius-large;
+        margin-bottom: 35px;
+
+        h3 {
+          font-size: 48px;
+          font-style: italic;
+          letter-spacing: $ls-medium;
+          font-weight: 700;
+        }
+      }
+
+      .pallet-holder {
+        display: flex;
+        flex-wrap: wrap;
+
+        .pallet {
+          display: flex;
+          align-self: flex-start;
+          border-radius: 3px;
+          overflow: hidden;
+          margin-right: 40px;
+          margin-bottom: 25px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+
+          &.is-active {
+            padding: 3px;
+            border: 1px solid $dark;
+          }
+
+          .pallet-item {
+            width: 40px;
+            height: 30px;
+          }
+        }
+      }
+
+      .preview-button {
+        height: 60px;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba($dark, .1);
+        font-weight: 700;
+        letter-spacing: $ls-small;
+        position: relative;
+
+        .preview-icon {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+}
