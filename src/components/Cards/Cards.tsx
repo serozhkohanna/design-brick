@@ -25,7 +25,29 @@ const Cards = () => {
 		  </div>
 		</div>
 		<div className="right-side">
-
+		  <div className="typography-block">
+			<div className="headline mb-auto">
+			  Headline Merriweather
+			</div>
+			<div className="subheadline mb-auto">
+			  Subheadline Merriweather
+			</div>
+			<div className="text-muted mb-auto">
+			  Muted text
+			</div>
+			<div className="text mb-auto">
+			  Body Text is just that, a style intended for the ordinary text of the body of a document. By default it is identical to Normal except for having 6 pts Spacing After.
+			  By default it is identical to Normal except for having 6 pts Spacing After.
+			</div>
+		  </div>
+		  <div className="colors">
+			<span className="colors-item" style={{'background': 'pink'}}/>
+			<span className="colors-item" style={{'background': 'purple'}}/>
+			<span className="colors-item" style={{'background': 'grey'}}/>
+			<span className="colors-item" style={{'background': 'blue'}}/>
+		  </div>
+		  <div className="gradient-range" style={{'background': 'linear-gradient(270deg, #EEA47F 0.92%, #00539C 101.15%)'}}>
+		  </div>
 		</div>
 	  </div>
 	</div>
