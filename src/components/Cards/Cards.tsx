@@ -45,13 +45,13 @@ const Cards: FC<Props> = ({designData}) => {
 		  <div className="right-side">
 			<div className="typography-block">
 			  <div className="headline mb-auto">
-				Headline Merriweather
+				Headline {item.font.name}
 			  </div>
 			  <div className="subheadline mb-auto">
-				Subheadline Merriweather
+				Subheadline {item.font.name}
 			  </div>
 			  <div className="text-muted mb-auto">
-				Muted text
+				Muted text {item.font.name}
 			  </div>
 			  <div className="text mb-auto">
 				Body Text is just that, a style intended for the ordinary text of the body of a document. By default it
