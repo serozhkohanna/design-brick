@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import './Cards.scss';
 import EyeIcon from '../../assets/icons/eye-open.svg';
 import { connect } from "react-redux";
@@ -10,6 +10,7 @@ interface Props {
 
 const Cards: FC<Props> = ({designData}) => {
   console.log(designData, 'design data');
+  const [deviceMode, setDevice] = useState('desktop-mode');
 
   const handlePreviewOpen = () => {
 
@@ -18,7 +19,7 @@ const Cards: FC<Props> = ({designData}) => {
   //@ts-ignore
   return designData.map(item => {
 	return <section key={item.id} className='card-section'>
-	  <div className="card-main desktop-mode">
+	  <div className={`card-main ${deviceMode}`}>
 		<div className="card-title">
 		  Classy
 		</div>
