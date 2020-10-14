@@ -3,6 +3,10 @@ import './Cards.scss';
 import EyeIcon from '../../assets/icons/eye-open.svg';
 
 const Cards = () => {
+  const handlePreviewOpen = () => {
+
+  }
+
   return <section className='card-section'>
 	<div className="card-main">
 	  <div className="card-title">
@@ -19,7 +23,7 @@ const Cards = () => {
 			  <div className='pallet-item' style={{'background': 'grey'}}/>
 			</div>
 		  </div>
-		  <div className="preview-button">
+		  <div className="preview-button" onClick={handlePreviewOpen}>
 			<img className='preview-icon' src={EyeIcon} alt="eye-open"/>
 			preview
 		  </div>
@@ -36,7 +40,8 @@ const Cards = () => {
 			  Muted text
 			</div>
 			<div className="text mb-auto">
-			  Body Text is just that, a style intended for the ordinary text of the body of a document. By default it is identical to Normal except for having 6 pts Spacing After.
+			  Body Text is just that, a style intended for the ordinary text of the body of a document. By default it is
+			  identical to Normal except for having 6 pts Spacing After.
 			  By default it is identical to Normal except for having 6 pts Spacing After.
 			</div>
 		  </div>
@@ -46,7 +51,8 @@ const Cards = () => {
 			<span className="colors-item" style={{'background': 'grey'}}/>
 			<span className="colors-item" style={{'background': 'blue'}}/>
 		  </div>
-		  <div className="gradient-range" style={{'background': 'linear-gradient(270deg, #EEA47F 0.92%, #00539C 101.15%)'}}>
+		  <div className="gradient-range"
+			   style={{'background': 'linear-gradient(270deg, #EEA47F 0.92%, #00539C 101.15%)'}}>
 		  </div>
 		</div>
 	  </div>
