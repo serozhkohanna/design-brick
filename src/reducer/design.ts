@@ -1,16 +1,7 @@
 import { Design } from "../constants/interfaces";
+import designData from '../design.json';
 
-const initialState: Design = {
-  name: 'Classy',
-  font: {
-	name: 'Merriweather',
-	link: 'https://fonts.googleapis.com/css2?family=Merriweather'
-  },
-  colors: {
-	bodyColor: '#444444',
-	palette: ['#00539C', '#EEA47F']
-  }
-}
+const initialState: Design[] = designData;
 
 export default function design(state = initialState) {
   return state;
