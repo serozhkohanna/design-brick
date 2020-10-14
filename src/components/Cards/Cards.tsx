@@ -21,17 +21,20 @@ const Cards: FC<Props> = ({designData}) => {
 	return <section key={item.id} className='card-section'>
 	  <div className={`card-main ${deviceMode}`}>
 		<div className="card-title">
-		  Classy
+		  {item.name}
 		</div>
 		<div className="card-content">
 		  <div className="left-side">
 			<div className="name-holder">
-			  <h3>Classy</h3>
+			  <h3>{item.name}</h3>
 			</div>
 			<div className="pallet-holder">
 			  <div className="pallet is-active">
-				<div className='pallet-item' style={{'background': 'pink'}}/>
-				<div className='pallet-item' style={{'background': 'grey'}}/>
+				{item.colors.palette.map((color, i) => {
+				  return <div className='pallet-item' key={i} style={{'background': color}}>
+
+				  </div>
+				})}
 			  </div>
 			</div>
 			<div className="preview-button" onClick={handlePreviewOpen}>
@@ -58,13 +61,15 @@ const Cards: FC<Props> = ({designData}) => {
 			  </div>
 			</div>
 			<div className="colors">
-			  <span className="colors-item" style={{'background': 'pink'}}/>
-			  <span className="colors-item" style={{'background': 'purple'}}/>
-			  <span className="colors-item" style={{'background': 'grey'}}/>
-			  <span className="colors-item" style={{'background': 'blue'}}/>
+			  {item.colors.palette.map((color, i) => {
+				return <span className='colors-item' key={i} style={{'background': color}}>
+
+				</span>
+			  })}
+			  <span className="colors-item" style={{'background': item.colors.bodyColor}}/>
 			</div>
 			<div className="gradient-range"
-				 style={{'background': 'linear-gradient(270deg, #EEA47F 0.92%, #00539C 101.15%)'}}>
+				 style={{'background': `linear-gradient(270deg, ${item.colors.palette[1]} 0.92%, ${item.colors.palette[0]} 101.15%)`}}>
 			</div>
 		  </div>
 		</div>
