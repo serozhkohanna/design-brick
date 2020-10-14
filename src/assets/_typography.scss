@@ -1,26 +1,28 @@
-.headline {
-  font-size: 48px;
-  line-height: 1.2;
-  font-weight: 700;
-}
+.desktop-mode {
+  .headline {
+    font-size: 48px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
 
-.headline-second {
-  font-size: 36px;
-  line-height: 1.2;
-  font-weight: 700;
-}
+  .headline-second {
+    font-size: 36px;
+    line-height: 1.2;
+    font-weight: 700;
+  }
 
-.subheadline {
-  font-size: 24px;
-  font-weight: 400;
-}
+  .subheadline {
+    font-size: 24px;
+    font-weight: 400;
+  }
 
-.text-muted {
-  font-size: 18px;
-  font-weight: 500;
-  opacity: .5;
-}
+  .text-muted {
+    font-size: 18px;
+    font-weight: 500;
+    opacity: .5;
+  }
 
-.text {
-  font-size: 14px;
+  .text {
+    font-size: 14px;
+  }
 }

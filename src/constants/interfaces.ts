@@ -9,6 +9,7 @@ interface Colors {
 }
 
 export interface Design {
+  id: number,
   name: string,
   font: Font,
   colors: Colors
