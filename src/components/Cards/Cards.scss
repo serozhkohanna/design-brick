@@ -92,6 +92,10 @@
 
       .typography-block {
         margin-bottom: 70px;
+
+        .text {
+          max-width: 650px;
+        }
       }
 
       .colors {
@@ -121,7 +125,75 @@
   .card-accordion {
     width: 100%;
     background: rgba($dark, .1);
-    padding: 30px;
     border-radius: $border-radius-large;
+    height: 0;
+    transition: height 3s ease-in-out;
+    overflow: hidden;
+
+    &.is-open {
+      height: auto;
+      transition: height 3s ease-in-out;
+    }
+
+    &-content {
+      padding: 30px 70px 30px 30px;
+    }
+
+    .navigation {
+      display: flex;
+
+      .day-mode {
+        margin-right: 50px;
+        cursor: pointer;
+      }
+
+      .mode-buttons {
+        display: flex;
+        width: 220px;
+        border-radius: $border-radius;
+        overflow: hidden;
+
+        .button {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          justify-content: center;
+          background: #ffffff;
+          cursor: pointer;
+
+          &.is-active {
+            color: #ffff;
+            background: $dark;
+
+            path {
+              fill: #ffffff;
+            }
+          }
+
+          svg {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .close-preview {
+        font-size: 14px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        cursor: pointer;
+
+        .preview-icon {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+.card-accordion {
+  &.night {
+    filter: invert(100%) !important;
   }
 }
