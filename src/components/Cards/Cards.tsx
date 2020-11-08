@@ -64,7 +64,7 @@ const Cards: FC<Props> = ({designData}) => {
 			</div>
 		  </div>
 		  <div className="right-side">
-			<div className="typography-block">
+			<div className="typography-block" style={{'fontFamily': item.font.name}}>
 			  <div className="headline mb-auto">
 				Headline {item.font.name}
 			  </div>
@@ -140,7 +140,7 @@ const Cards: FC<Props> = ({designData}) => {
 			  CLOSE PREVIEW
 			</div>
 		  </div>
-		  <div className="content">
+		  <div className={`content ${deviceMode}`}>
 			<div className="row">
 			  <div className="column">
 				<div className="block block-font">
@@ -191,6 +191,31 @@ const Cards: FC<Props> = ({designData}) => {
 					  </div>
 					  <p>{`background: linear-gradient(270deg, ${item.colors.palette[1]} 0.92%, ${item.colors.palette[0]} 101.15%)`}</p>
 					</div>
+				  </div>
+				</div>
+				<div className="block block-typography">
+				  <h5 className="subheadline--content">
+					TYPOGRAPHY
+				  </h5>
+				  <div className="typo" style={{'fontFamily': item.font.name}}>
+					<div className="headline">Headline 1</div>
+					<div className="code">Bold / size: 48px / line-height: 1.3</div>
+				  </div>
+				  <div className="typo" style={{'fontFamily': item.font.name}}>
+					<div className="headline-second">Headline 2</div>
+					<div className="code">Bold / size: 36px / line-height: 1.3</div>
+				  </div>
+				  <div className="typo" style={{'fontFamily': item.font.name}}>
+					<div className="subheadline">Subheadline</div>
+					<div className="code">Regular / size: 24px / line-height: 1.5</div>
+				  </div>
+				  <div className="typo" style={{'fontFamily': item.font.name}}>
+					<div className="text-muted">Label text muted</div>
+					<div className="code">Bold / size: 18px / line-height: 1.5</div>
+				  </div>
+				  <div className="typo" style={{'fontFamily': item.font.name}}>
+					<div className="text">Main body text</div>
+					<div className="code">Regular / size: 14px / line-height: 1.5</div>
 				  </div>
 				</div>
 			  </div>
