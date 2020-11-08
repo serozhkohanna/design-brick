@@ -1,0 +1,33 @@
+.btn {
+  width: 160px;
+  height: 45px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: $ls-small;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: $border-radius;
+  color: #fff;
+  cursor: pointer;
+
+  &.is-disabled {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+
+  &.is-hover {
+    filter: saturate(.5);
+  }
+
+  &.is-link {
+    color: inherit;
+    text-decoration: underline;
+
+    &.is-hover {
+      font-weight: bold;
+      filter: contrast(2);
+    }
+  }
+}

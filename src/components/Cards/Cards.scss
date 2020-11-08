@@ -197,7 +197,7 @@
       }
 
       .block {
-        margin-bottom: 30px;
+        margin-bottom: 50px;
         width: 650px;
         margin-right: 150px;
 
@@ -309,6 +309,24 @@
               width: 50%;
               margin-left: auto;
               letter-spacing: $ls-small;
+            }
+          }
+        }
+
+        &-buttons {
+          .row {
+            margin-bottom: 30px;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            .btn {
+              margin-right: 40px;
+
+              &:last-child {
+                margin-right: 0;
+              }
             }
           }
         }
