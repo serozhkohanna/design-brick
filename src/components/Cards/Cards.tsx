@@ -180,6 +180,17 @@ const Cards: FC<Props> = ({designData}) => {
 					  </div>
 					})
 					}
+					<div className="color-gradient">
+					  <CopyToClipboard text={`background: linear-gradient(270deg, ${item.colors.palette[1]} 0.92%, ${item.colors.palette[0]} 101.15%)`}>
+						<button className="copy-btn">
+						  <img src={CopyIcon} alt="copy-icon"/>
+						</button>
+					  </CopyToClipboard>
+					  <div className="fill" style={{'background': `linear-gradient(270deg, ${item.colors.palette[1]} 0.92%, ${item.colors.palette[0]} 101.15%)`}}>
+
+					  </div>
+					  <p>{`background: linear-gradient(270deg, ${item.colors.palette[1]} 0.92%, ${item.colors.palette[0]} 101.15%)`}</p>
+					</div>
 				  </div>
 				</div>
 			  </div>

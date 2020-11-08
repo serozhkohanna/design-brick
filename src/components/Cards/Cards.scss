@@ -239,6 +239,7 @@
         &-colors {
           .row {
             display: flex;
+            flex-wrap: wrap;
 
             .color-item {
               width: 105px;
@@ -250,6 +251,7 @@
               font-size: 12px;
               line-height: $lh-medium;
               position: relative;
+              margin-bottom: 30px;
 
               &:last-child {
                 margin-right: 0;
@@ -265,6 +267,29 @@
               .fill {
                 height: 50px;
                 width: 100%;
+              }
+            }
+
+            .color-gradient {
+              width: 100%;
+              border-radius: $border-radius $border-radius 0 0;
+              position: relative;
+              background: #fff;
+              text-align: center;
+              overflow: hidden;
+              font-size: 12px;
+              line-height: $lh-medium;
+
+              .fill {
+                height: 35px;
+                width: 100%;
+              }
+
+              .copy-btn {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                cursor: pointer;
               }
             }
           }
