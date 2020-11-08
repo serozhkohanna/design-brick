@@ -1,4 +1,4 @@
-.desktop-mode {
+.desktop {
   .headline {
     font-size: 48px;
     line-height: 1.2;
@@ -25,4 +25,11 @@
   .text {
     font-size: 14px;
   }
+}
+
+.subheadline--content {
+  text-transform: uppercase;
+  color: $dark-muted;
+  font-weight: 700;
+  letter-spacing: $ls-small;
 }

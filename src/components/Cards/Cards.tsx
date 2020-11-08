@@ -2,8 +2,10 @@ import React, { FC, useState } from 'react';
 import './Cards.scss';
 import EyeIcon from '../../assets/icons/eye-open.svg';
 import EyeCloseIcon from '../../assets/icons/eye-close.svg';
+import CopyIcon from '../../assets/icons/copy.svg';
 import { connect } from "react-redux";
 import { Design } from "../../constants/interfaces";
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 interface Props {
   designData: Design
@@ -14,6 +16,7 @@ const Cards: FC<Props> = ({designData}) => {
   const [deviceMode, setDevice] = useState('desktop');
   const [nightMode, setNightMode] = useState(false);
   const [isPreviewOpen, setPreview] = useState(false);
+  const [isCopied, setCopy] = useState(false)
 
   const handlePreviewOpen = () => {
 	setPreview(!isPreviewOpen);
@@ -25,6 +28,13 @@ const Cards: FC<Props> = ({designData}) => {
 
   const handleNightClick = () => {
 	setNightMode(!nightMode);
+  }
+
+  const handleCopy = () => {
+	setCopy(true);
+	setTimeout(function () {
+	  setCopy(false)
+	}, 2000);
   }
 
   //@ts-ignore
@@ -96,7 +106,8 @@ const Cards: FC<Props> = ({designData}) => {
 			  </svg>
 			</div>
 			<div className="mode-buttons">
-			  <button className={`${deviceMode === 'mobile' && 'is-active'} button`} onClick={() => handleDeviceClick('mobile')}>
+			  <button className={`${deviceMode === 'mobile' && 'is-active'} button`}
+					  onClick={() => handleDeviceClick('mobile')}>
 				<svg width="10" height="18" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 				  <path
 					d="M8.52941 0H1.47059C1.0807 0.000432237 0.706903 0.153508 0.431209 0.425645C0.155515 0.697782 0.000437888 1.06675 0 1.45161V16.5484C0.000437888 16.9332 0.155515 17.3022 0.431209 17.5744C0.706903 17.8465 1.0807 17.9996 1.47059 18H8.52941C8.9193 17.9996 9.2931 17.8465 9.56879 17.5744C9.84449 17.3022 9.99956 16.9332 10 16.5484V1.45161C9.99956 1.06675 9.84449 0.697782 9.56879 0.425645C9.2931 0.153508 8.9193 0.000432237 8.52941 0ZM6.99419 0.580645L6.81772 1.45161H3.18232L3.00585 0.580645H6.99419ZM9.41177 16.5484C9.4115 16.7793 9.31846 17.0007 9.15304 17.164C8.98762 17.3272 8.76335 17.4191 8.52941 17.4194H1.47059C1.23665 17.4191 1.01238 17.3272 0.84696 17.164C0.681544 17.0007 0.588498 16.7793 0.588235 16.5484V1.45161C0.588498 1.2207 0.681544 0.999314 0.84696 0.836032C1.01238 0.67275 1.23665 0.580904 1.47059 0.580645H2.40592L2.65276 1.79887C2.66609 1.86469 2.70212 1.92391 2.7547 1.96646C2.80729 2.00901 2.87318 2.03226 2.94118 2.03226H7.05882C7.12682 2.03226 7.19271 2.00901 7.2453 1.96646C7.29788 1.92391 7.33391 1.86469 7.34724 1.79887L7.59408 0.580645H8.52941C8.76335 0.580904 8.98762 0.67275 9.15304 0.836032C9.31846 0.999314 9.4115 1.2207 9.41177 1.45161V16.5484Z"
@@ -110,7 +121,8 @@ const Cards: FC<Props> = ({designData}) => {
 				</svg>
 				Mobile
 			  </button>
-			  <button className={`${deviceMode === 'desktop' && 'is-active'} button`} onClick={() => handleDeviceClick('desktop')}>
+			  <button className={`${deviceMode === 'desktop' && 'is-active'} button`}
+					  onClick={() => handleDeviceClick('desktop')}>
 				<svg width="25" height="18" viewBox="0 0 25 18" fill="none" xmlns="http://www.w3.org/2000/svg">
 				  <path
 					d="M13.3334 13.5C13.3334 13.8314 12.9603 14.1 12.5001 14.1C12.0399 14.1 11.6667 13.8314 11.6667 13.5C11.6667 13.1687 12.0399 12.9 12.5001 12.9C12.9603 12.9 13.3334 13.1687 13.3334 13.5Z"
@@ -126,6 +138,52 @@ const Cards: FC<Props> = ({designData}) => {
 			<div className='close-preview' onClick={handlePreviewOpen}>
 			  <img className='preview-icon' src={EyeCloseIcon} alt="eye-close"/>
 			  CLOSE PREVIEW
+			</div>
+		  </div>
+		  <div className="content">
+			<div className="row">
+			  <div className="column">
+				<div className="block block-font">
+				  <h5 className="subheadline--content">
+					Font Family
+				  </h5>
+				  <p>{item.font.name}</p>
+				  <CopyToClipboard onCopy={handleCopy} text={item.font.link}>
+					<button className="link">copy font link
+					  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+						<path
+						  d="M14.3182 0H8.86365C8.4871 0 8.18182 0.305273 8.18182 0.681826C8.18182 1.05838 8.4871 1.36365 8.86365 1.36365H12.6721L5.6543 8.38154C5.38802 8.64782 5.38802 9.07948 5.6543 9.34576C5.78739 9.47889 5.96189 9.54545 6.13638 9.54545C6.31087 9.54545 6.48539 9.47892 6.61852 9.34573L13.6364 2.32787V6.13638C13.6364 6.51293 13.9417 6.8182 14.3182 6.8182C14.6948 6.8182 15 6.51293 15 6.13638V0.681826C15 0.305273 14.6947 0 14.3182 0Z"
+						  fill="#444444"/>
+						<path
+						  d="M11.5909 6.81819C11.2143 6.81819 10.9091 7.12347 10.9091 7.50002V13.6364H1.36362V4.09092H7.49999C7.87654 4.09092 8.18181 3.78564 8.18181 3.40909C8.18181 3.03254 7.87654 2.72729 7.49999 2.72729H0.681825C0.305273 2.72729 0 3.03257 0 3.40912V14.3182C0 14.6947 0.305273 15 0.681825 15H11.5909C11.9675 15 12.2727 14.6947 12.2727 14.3182V7.50002C12.2727 7.12347 11.9674 6.81819 11.5909 6.81819Z"
+						  fill="#444444"/>
+					  </svg>
+					  {isCopied && <p className='copy-text'>Copied!</p>}
+					</button>
+				  </CopyToClipboard>
+				</div>
+				<div className="block block-colors">
+				  <h5 className="subheadline--content">
+					COLORS
+				  </h5>
+				  <div className="row">
+					{item.colors.palette.map((color, i) => {
+					  return <div className="color-item" key={i}>
+						<CopyToClipboard text={color}>
+						  <button className="copy-btn">
+							<img src={CopyIcon} alt="copy-icon"/>
+						  </button>
+						</CopyToClipboard>
+						<div className="fill" style={{'background': color}}>
+						</div>
+						<p>{color}</p>
+					  </div>
+					})
+					}
+				  </div>
+				</div>
+			  </div>
+			  <div className="column">desktop will be here</div>
 			</div>
 		  </div>
 		</div>
