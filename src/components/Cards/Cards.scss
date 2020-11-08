@@ -141,6 +141,7 @@
 
     .navigation {
       display: flex;
+      margin-bottom: 50px;
 
       .day-mode {
         margin-right: 50px;
@@ -187,6 +188,92 @@
         .preview-icon {
           margin-right: 10px;
         }
+      }
+    }
+
+    .content {
+      .row {
+        display: flex;
+      }
+
+      .block {
+        margin-bottom: 30px;
+
+        &-font {
+          display: flex;
+          flex-wrap: wrap;
+          width: 500px;
+          margin-right: 150px;
+
+          .link {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            text-decoration: underline;
+            cursor: pointer;
+            position: relative;
+            padding-right: 70px;
+
+            svg {
+              margin-left: 10px;
+            }
+
+            .copy-text {
+              position: absolute;
+              right: 0;
+              color: $blood-red;
+              font-weight: 500;
+            }
+
+            &:hover, &:active, &:focus {
+              color: $blue;
+
+              svg * {
+                fill: $blue;
+              }
+            }
+          }
+        }
+
+        &-colors {
+          .row {
+            display: flex;
+
+            .color-item {
+              width: 105px;
+              margin-right: 25px;
+              border-radius: $border-radius $border-radius 0 0;
+              overflow: hidden;
+              background: #fff;
+              text-align: center;
+              font-size: 12px;
+              line-height: $lh-medium;
+              position: relative;
+
+              &:last-child {
+                margin-right: 0;
+              }
+
+              .copy-btn {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                cursor: pointer;
+              }
+
+              .fill {
+                height: 50px;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      .subheadline--content {
+        margin-bottom: 20px;
+        width: 100%;
       }
     }
   }

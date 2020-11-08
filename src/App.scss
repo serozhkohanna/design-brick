@@ -12,6 +12,10 @@ body {
   line-height: 1.5;
 }
 
+button, input, textarea {
+  font-family: 'Inter', sans-serif;
+}
+
 .page {
   display: flex;
   flex-direction: column;
