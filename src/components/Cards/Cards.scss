@@ -198,12 +198,12 @@
 
       .block {
         margin-bottom: 30px;
+        width: 600px;
+        margin-right: 150px;
 
         &-font {
           display: flex;
           flex-wrap: wrap;
-          width: 500px;
-          margin-right: 150px;
 
           .link {
             margin-left: auto;
