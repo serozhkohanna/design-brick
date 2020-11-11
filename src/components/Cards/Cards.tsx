@@ -269,7 +269,8 @@ const Cards: FC<Props> = ({designData}) => {
 					</div>
 					<div className="input">
 					  <label htmlFor='input-focus'>Focus input</label>
-					  <input className='input-field' style={{'borderColor': item.colors.palette[0]}} type="text" id='input-focus' value='Typed something'/>
+					  <input className='input-field' style={{'borderColor': item.colors.palette[0]}} type="text" id='input-focus'
+							 readOnly value='Typed something'/>
 					</div>
 					<div className="input">
 					  <label htmlFor='input-focus'>Disabled input</label>
