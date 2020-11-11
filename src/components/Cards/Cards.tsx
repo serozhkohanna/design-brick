@@ -258,6 +258,25 @@ const Cards: FC<Props> = ({designData}) => {
 					</div>
 				  </div>
 				</div>
+				<div className="block block-inputs">
+				  <h5 className="subheadline--content">
+					inputs
+				  </h5>
+				  <div className="row" style={{'color': item.colors.bodyColor}}>
+					<div className="input">
+					  <label htmlFor='input-default'>Default input</label>
+					  <input className='input-field' style={{'borderColor': item.colors.bodyColor}} type="text" id='input-default' placeholder='Type something'/>
+					</div>
+					<div className="input">
+					  <label htmlFor='input-focus'>Focus input</label>
+					  <input className='input-field' style={{'borderColor': item.colors.palette[0]}} type="text" id='input-focus' value='Typed something'/>
+					</div>
+					<div className="input">
+					  <label htmlFor='input-focus'>Disabled input</label>
+					  <input disabled className='input-field is-disabled' style={{'borderColor': item.colors.bodyColor}} type="text" id='input-focus' placeholder='Type something'/>
+					</div>
+				  </div>
+				</div>
 			  </div>
 			  <div className="column">desktop will be here</div>
 			</div>
