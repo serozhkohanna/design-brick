@@ -262,7 +262,7 @@ const Cards: FC<Props> = ({designData}) => {
 				  <h5 className="subheadline--content">
 					inputs
 				  </h5>
-				  <div className="row" style={{'color': item.colors.bodyColor}}>
+				  <div className="row" style={{'color': item.colors.bodyColor, 'fontFamily': item.font.name}}>
 					<div className="input">
 					  <label htmlFor='input-default'>Default input</label>
 					  <input className='input-field' style={{'borderColor': item.colors.bodyColor}} type="text" id='input-default' placeholder='Type something'/>

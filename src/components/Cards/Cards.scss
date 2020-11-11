@@ -332,13 +332,19 @@
         }
 
         &-inputs {
+          .row {
+            flex-wrap: wrap;
+          }
+
           .input {
             max-width: 230px;
             width: 100%;
             margin-right: 45px;
+            margin-bottom: 25px;
 
             &:last-child {
               margin-right: 0;
+              margin-bottom: 0;
             }
 
             input {
@@ -349,6 +355,8 @@
               font-size: 12px;
               font-weight: normal;
               letter-spacing: .5px;
+              display: block;
+              margin-bottom: 5px;
             }
           }
         }
