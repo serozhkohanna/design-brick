@@ -352,6 +352,34 @@
             }
           }
         }
+
+        &-notification {
+          .notification {
+            width: 360px;
+            height: 40px;
+            border-radius: $border-radius;
+            text-transform: uppercase;
+            letter-spacing: $ls-small;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #fff;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            &-primary {
+              opacity: .5;
+            }
+
+            &-error {
+              background: $blood-red;
+            }
+          }
+        }
       }
 
       .subheadline--content {

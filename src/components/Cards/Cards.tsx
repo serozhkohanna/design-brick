@@ -278,6 +278,17 @@ const Cards: FC<Props> = ({designData}) => {
 					</div>
 				  </div>
 				</div>
+				<div className="block block-notification">
+				  <h5 className="subheadline--content">
+					notification
+				  </h5>
+				   <div className="notification notification-primary" style={{'fontFamily': item.font.name, 'background': item.colors.palette[0]}}>
+					 Message notification
+				   </div>
+				  <div className="notification notification-error" style={{'fontFamily': item.font.name}}>
+					Error message notification
+				  </div>
+				</div>
 			  </div>
 			  <div className="column">desktop will be here</div>
 			</div>
