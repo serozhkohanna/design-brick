@@ -355,8 +355,8 @@
 
         &-notification {
           .notification {
-            width: 360px;
-            height: 40px;
+            width: 375px;
+            height: 45px;
             border-radius: $border-radius;
             text-transform: uppercase;
             letter-spacing: $ls-small;
@@ -369,10 +369,6 @@
 
             &:last-child {
               margin-bottom: 0;
-            }
-
-            &-primary {
-              opacity: .5;
             }
 
             &-error {
