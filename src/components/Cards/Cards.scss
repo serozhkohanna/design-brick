@@ -197,7 +197,7 @@
       }
 
       .block {
-        margin-bottom: 30px;
+        margin-bottom: 50px;
         width: 650px;
         margin-right: 150px;
 
@@ -309,6 +309,78 @@
               width: 50%;
               margin-left: auto;
               letter-spacing: $ls-small;
+            }
+          }
+        }
+
+        &-buttons {
+          .row {
+            margin-bottom: 30px;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            .btn {
+              margin-right: 40px;
+
+              &:last-child {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+
+        &-inputs {
+          .row {
+            flex-wrap: wrap;
+          }
+
+          .input {
+            max-width: 230px;
+            width: 100%;
+            margin-right: 45px;
+            margin-bottom: 25px;
+
+            &:last-child {
+              margin-right: 0;
+              margin-bottom: 0;
+            }
+
+            input {
+              width: 100%;
+            }
+
+            label {
+              font-size: 12px;
+              font-weight: normal;
+              letter-spacing: .5px;
+              display: block;
+              margin-bottom: 5px;
+            }
+          }
+        }
+
+        &-notification {
+          .notification {
+            width: 375px;
+            height: 45px;
+            border-radius: $border-radius;
+            text-transform: uppercase;
+            letter-spacing: $ls-small;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: #fff;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            &-error {
+              background: $blood-red;
             }
           }
         }

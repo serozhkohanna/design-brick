@@ -181,12 +181,14 @@ const Cards: FC<Props> = ({designData}) => {
 					})
 					}
 					<div className="color-gradient">
-					  <CopyToClipboard text={`background: linear-gradient(270deg, ${item.colors.palette[1]} 0.92%, ${item.colors.palette[0]} 101.15%)`}>
+					  <CopyToClipboard
+						text={`background: linear-gradient(270deg, ${item.colors.palette[1]} 0.92%, ${item.colors.palette[0]} 101.15%)`}>
 						<button className="copy-btn">
 						  <img src={CopyIcon} alt="copy-icon"/>
 						</button>
 					  </CopyToClipboard>
-					  <div className="fill" style={{'background': `linear-gradient(270deg, ${item.colors.palette[1]} 0.92%, ${item.colors.palette[0]} 101.15%)`}}>
+					  <div className="fill"
+						   style={{'background': `linear-gradient(270deg, ${item.colors.palette[1]} 0.92%, ${item.colors.palette[0]} 101.15%)`}}>
 
 					  </div>
 					  <p>{`background: linear-gradient(270deg, ${item.colors.palette[1]} 0.92%, ${item.colors.palette[0]} 101.15%)`}</p>
@@ -216,6 +218,75 @@ const Cards: FC<Props> = ({designData}) => {
 				  <div className="typo" style={{'fontFamily': item.font.name}}>
 					<div className="text">Main body text</div>
 					<div className="code">Regular / size: 14px / line-height: 1.5</div>
+				  </div>
+				</div>
+				<div className="block block-buttons">
+				  <h5 className="subheadline--content">
+					Buttons
+				  </h5>
+				  <div className="row" style={{'fontFamily': item.font.name}}>
+					<div className="btn" style={{'background': item.colors.palette[0]}}>
+					  primary
+					</div>
+					<div className="btn is-hover" style={{'background': item.colors.palette[0]}}>
+					  hover
+					</div>
+					<div className="btn is-disabled" style={{'background': item.colors.palette[0]}}>
+					  disabled
+					</div>
+				  </div>
+				  <div className="row" style={{'fontFamily': item.font.name}}>
+					<div className="btn" style={{'background': item.colors.palette[1]}}>
+					  secondary
+					</div>
+					<div className="btn is-hover" style={{'background': item.colors.palette[1]}}>
+					  hover
+					</div>
+					<div className="btn is-disabled" style={{'background': item.colors.palette[1]}}>
+					  disabled
+					</div>
+				  </div>
+				  <div className="row" style={{'fontFamily': item.font.name, 'color': item.colors.bodyColor}}>
+					<div className="btn is-link">
+					  Link
+					</div>
+					<div className="btn is-link is-hover">
+					  hover
+					</div>
+					<div className="btn is-link is-disabled">
+					  disabled
+					</div>
+				  </div>
+				</div>
+				<div className="block block-inputs">
+				  <h5 className="subheadline--content">
+					inputs
+				  </h5>
+				  <div className="row" style={{'color': item.colors.bodyColor, 'fontFamily': item.font.name}}>
+					<div className="input">
+					  <label htmlFor='input-default'>Default input</label>
+					  <input className='input-field' style={{'borderColor': item.colors.bodyColor}} type="text" id='input-default' placeholder='Type something'/>
+					</div>
+					<div className="input">
+					  <label htmlFor='input-focus'>Focus input</label>
+					  <input className='input-field' style={{'borderColor': item.colors.palette[0]}} type="text" id='input-focus'
+							 readOnly value='Typed something'/>
+					</div>
+					<div className="input">
+					  <label htmlFor='input-focus'>Disabled input</label>
+					  <input disabled className='input-field is-disabled' style={{'borderColor': item.colors.bodyColor}} type="text" id='input-focus' placeholder='Type something'/>
+					</div>
+				  </div>
+				</div>
+				<div className="block block-notification">
+				  <h5 className="subheadline--content">
+					notification
+				  </h5>
+				   <div className="notification notification-primary" style={{'fontFamily': item.font.name, 'background': item.colors.palette[0]}}>
+					 Message notification
+				   </div>
+				  <div className="notification notification-error" style={{'fontFamily': item.font.name}}>
+					Error message notification
 				  </div>
 				</div>
 			  </div>
