@@ -15,10 +15,21 @@ export interface Design {
   colors: Colors
 }
 
+interface DeviceMode {
+  desktop: string;
+  mobile: string;
+}
+
+interface TypographyProperties {
+  lineHeight: number;
+  fontWeight: string;
+  fontSize: DeviceMode
+}
+
 export interface Typography {
-  headline: object;
-  headlineSecond: object;
-  subheadline: object;
-  textMuted: object;
-  text: object;
+  headline: TypographyProperties;
+  headlineSecond: TypographyProperties;
+  subheadline: TypographyProperties;
+  textMuted: TypographyProperties;
+  text: TypographyProperties;
 }

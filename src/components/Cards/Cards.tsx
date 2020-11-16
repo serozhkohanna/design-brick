@@ -4,15 +4,16 @@ import EyeIcon from '../../assets/icons/eye-open.svg';
 import EyeCloseIcon from '../../assets/icons/eye-close.svg';
 import CopyIcon from '../../assets/icons/copy.svg';
 import { connect } from "react-redux";
-import { Design } from "../../constants/interfaces";
+import { Design, Typography } from "../../constants/interfaces";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 interface Props {
-  designData: Design
+  designData: Design,
+  typographyData: Typography
 }
 
-const Cards: FC<Props> = ({designData}) => {
-  console.log(designData, 'design data');
+const Cards: FC<Props> = ({designData, typographyData}) => {
+  console.log(typographyData, 'typo data');
   const [deviceMode, setDevice] = useState('desktop');
   const [nightMode, setNightMode] = useState(false);
   const [isPreviewOpen, setPreview] = useState(false);
@@ -201,7 +202,7 @@ const Cards: FC<Props> = ({designData}) => {
 				  </h5>
 				  <div className="typo" style={{'fontFamily': item.font.name}}>
 					<div className="headline">Headline 1</div>
-					<div className="code">Bold / size: 48px / line-height: 1.3</div>
+					<div className="code"> ${typographyData.headline.fontWeight} / size: ${typographyData.headline.fontSize['desktop']} / ${typographyData.headline.lineHeight}</div>
 				  </div>
 				  <div className="typo" style={{'fontFamily': item.font.name}}>
 					<div className="headline-second">Headline 2</div>
@@ -300,9 +301,10 @@ const Cards: FC<Props> = ({designData}) => {
 }
 
 // @ts-ignore
-const mapStateToProps = ({design}) => {
+const mapStateToProps = ({design, typography}) => {
   return {
-	designData: design
+	designData: design,
+	typographyData: typography
   }
 }
 
