@@ -40,7 +40,7 @@ const Cards: FC<Props> = ({designData}) => {
   //@ts-ignore
   return designData.map(item => {
 	return <section key={item.id} className='card-section'>
-	  <div className={`card-main ${deviceMode}`}>
+	  <div className={`card-main ${'desktop'}`}>
 		<div className="card-title">
 		  {item.name}
 		</div>
