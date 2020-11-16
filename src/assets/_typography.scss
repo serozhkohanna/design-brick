@@ -1,25 +1,55 @@
+.headline, .headline-second {
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.subheadline {
+  font-weight: normal;
+}
+
+.text-muted {
+  font-weight: bold;
+  opacity: .5;
+}
+
+
 .desktop {
   .headline {
     font-size: 48px;
-    line-height: 1.2;
-    font-weight: bold;
   }
 
   .headline-second {
     font-size: 36px;
-    line-height: 1.2;
-    font-weight: bold;
   }
 
   .subheadline {
     font-size: 24px;
-    font-weight: normal;
   }
 
   .text-muted {
     font-size: 18px;
-    font-weight: bold;
-    opacity: .5;
+  }
+
+  .text {
+    font-size: 14px;
+  }
+}
+
+.mobile {
+  .headline {
+    font-size: 40px;
+  }
+
+  .headline-second {
+    font-size: 30px;
+  }
+
+  .subheadline {
+    font-size: 20px;
+  }
+
+  .text-muted {
+    font-size: 16px;
   }
 
   .text {
@@ -33,3 +63,4 @@
   font-weight: bold;
   letter-spacing: $ls-small;
 }
+
