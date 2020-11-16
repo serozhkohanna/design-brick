@@ -14,3 +14,11 @@ export interface Design {
   font: Font,
   colors: Colors
 }
+
+export interface Typography {
+  headline: object;
+  headlineSecond: object;
+  subheadline: object;
+  textMuted: object;
+  text: object;
+}
