@@ -202,23 +202,23 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
 				  </h5>
 				  <div className="typo" style={{'fontFamily': item.font.name}}>
 					<div className="headline">Headline 1</div>
-					<div className="code"> ${typographyData.headline.fontWeight} / size: ${typographyData.headline.fontSize['desktop']} / ${typographyData.headline.lineHeight}</div>
+					<div className="code"> {typographyData.headline.fontWeight} / size: {typographyData.headline.fontSize[deviceMode]} / line-height: {typographyData.headline.lineHeight}</div>
 				  </div>
 				  <div className="typo" style={{'fontFamily': item.font.name}}>
 					<div className="headline-second">Headline 2</div>
-					<div className="code">Bold / size: 36px / line-height: 1.3</div>
+					<div className="code">{typographyData.headlineSecond.fontWeight} / size: {typographyData.headlineSecond.fontSize[deviceMode]} / line-height: {typographyData.headlineSecond.lineHeight}</div>
 				  </div>
 				  <div className="typo" style={{'fontFamily': item.font.name}}>
 					<div className="subheadline">Subheadline</div>
-					<div className="code">Regular / size: 24px / line-height: 1.5</div>
+					<div className="code">{typographyData.subheadline.fontWeight} / size: {typographyData.subheadline.fontSize[deviceMode]} / line-height: {typographyData.subheadline.lineHeight}</div>
 				  </div>
 				  <div className="typo" style={{'fontFamily': item.font.name}}>
 					<div className="text-muted">Label text muted</div>
-					<div className="code">Bold / size: 18px / line-height: 1.5</div>
+					<div className="code">{typographyData.textMuted.fontWeight} / size: {typographyData.textMuted.fontSize[deviceMode]} / line-height: {typographyData.textMuted.lineHeight}</div>
 				  </div>
 				  <div className="typo" style={{'fontFamily': item.font.name}}>
 					<div className="text">Main body text</div>
-					<div className="code">Regular / size: 14px / line-height: 1.5</div>
+					<div className="code">{typographyData.text.fontWeight} / size: {typographyData.text.fontSize[deviceMode]} / line-height: {typographyData.text.lineHeight}</div>
 				  </div>
 				</div>
 				<div className="block block-buttons">
