@@ -33,3 +33,8 @@ export interface Typography {
   textMuted: TypographyProperties;
   text: TypographyProperties;
 }
+
+export interface Tooltip {
+  type: string;
+  message: string;
+}

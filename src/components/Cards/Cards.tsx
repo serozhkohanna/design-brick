@@ -34,6 +34,7 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
 
   const handleCopy = () => {
 	setCopy(true);
+	console.log('copied to clipboard');
 	setTimeout(function () {
 	  setCopy(false)
 	}, 2000);
@@ -182,7 +183,7 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
 				  <div className="row">
 					{item.colors[activePalette].map((color, i) => {
 					  return <div className="color-item" key={i}>
-						<CopyToClipboard text={color}>
+						<CopyToClipboard onCopy={handleCopy} text={color}>
 						  <button className="copy-btn">
 							<img src={CopyIcon} alt="copy-icon"/>
 						  </button>
@@ -195,6 +196,7 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
 					}
 					<div className="color-gradient">
 					  <CopyToClipboard
+						onCopy={handleCopy}
 						text={`background: linear-gradient(270deg, ${item.colors[activePalette][1]} 0.92%, ${item.colors[activePalette][0]} 101.15%)`}>
 						<button className="copy-btn">
 						  <img src={CopyIcon} alt="copy-icon"/>
