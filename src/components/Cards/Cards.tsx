@@ -17,7 +17,8 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
   const [deviceMode, setDevice] = useState('desktop');
   const [nightMode, setNightMode] = useState(false);
   const [isPreviewOpen, setPreview] = useState(false);
-  const [isCopied, setCopy] = useState(false)
+  const [isCopied, setCopy] = useState(false);
+  const [activePalette, setActivePalette] = useState('palette');
 
   const handlePreviewOpen = () => {
 	setPreview(!isPreviewOpen);
@@ -38,6 +39,10 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
 	}, 2000);
   }
 
+  const handlePaletteActive = (palette) => {
+    setActivePalette(palette);
+  }
+
   //@ts-ignore
   return designData.map(item => {
 	return <section key={item.id} className='card-section'>
@@ -51,8 +56,15 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
 			  <h3>{item.name}</h3>
 			</div>
 			<div className="pallet-holder">
-			  <div className="pallet is-active">
+			  <div className={`pallet ${activePalette === 'palette' && 'is-active'}`} onClick={() => handlePaletteActive('palette')}>
 				{item.colors.palette.map((color, i) => {
+				  return <div className='pallet-item' key={i} style={{'background': color}}>
+
+				  </div>
+				})}
+			  </div>
+			  <div className={`pallet ${activePalette === 'palette2' && 'is-active'}`} onClick={() => handlePaletteActive('palette2')}>
+				{item.colors.palette2?.map((color, i) => {
 				  return <div className='pallet-item' key={i} style={{'background': color}}>
 
 				  </div>
@@ -83,7 +95,7 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
 			  </div>
 			</div>
 			<div className="colors">
-			  {item.colors.palette.map((color, i) => {
+			  {item.colors[activePalette].map((color, i) => {
 				return <span className='colors-item' key={i} style={{'background': color}}>
 
 				</span>
@@ -91,7 +103,7 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
 			  <span className="colors-item" style={{'background': item.colors.bodyColor}}/>
 			</div>
 			<div className="gradient-range"
-				 style={{'background': `linear-gradient(270deg, ${item.colors.palette[1]} 0.92%, ${item.colors.palette[0]} 101.15%)`}}>
+				 style={{'background': `linear-gradient(270deg, ${item.colors[activePalette][1]} 0.92%, ${item.colors[activePalette][0]} 101.15%)`}}>
 			</div>
 		  </div>
 		</div>
@@ -168,7 +180,7 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
 					COLORS
 				  </h5>
 				  <div className="row">
-					{item.colors.palette.map((color, i) => {
+					{item.colors[activePalette].map((color, i) => {
 					  return <div className="color-item" key={i}>
 						<CopyToClipboard text={color}>
 						  <button className="copy-btn">
@@ -183,16 +195,16 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
 					}
 					<div className="color-gradient">
 					  <CopyToClipboard
-						text={`background: linear-gradient(270deg, ${item.colors.palette[1]} 0.92%, ${item.colors.palette[0]} 101.15%)`}>
+						text={`background: linear-gradient(270deg, ${item.colors[activePalette][1]} 0.92%, ${item.colors[activePalette][0]} 101.15%)`}>
 						<button className="copy-btn">
 						  <img src={CopyIcon} alt="copy-icon"/>
 						</button>
 					  </CopyToClipboard>
 					  <div className="fill"
-						   style={{'background': `linear-gradient(270deg, ${item.colors.palette[1]} 0.92%, ${item.colors.palette[0]} 101.15%)`}}>
+						   style={{'background': `linear-gradient(270deg, ${item.colors[activePalette][1]} 0.92%, ${item.colors[activePalette][0]} 101.15%)`}}>
 
 					  </div>
-					  <p>{`background: linear-gradient(270deg, ${item.colors.palette[1]} 0.92%, ${item.colors.palette[0]} 101.15%)`}</p>
+					  <p>{`background: linear-gradient(270deg, ${item.colors[activePalette][1]} 0.92%, ${item.colors[activePalette][0]} 101.15%)`}</p>
 					</div>
 				  </div>
 				</div>
@@ -202,23 +214,23 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
 				  </h5>
 				  <div className="typo" style={{'fontFamily': item.font.name}}>
 					<div className="headline">Headline 1</div>
-					<div className="code"> ${typographyData.headline.fontWeight} / size: ${typographyData.headline.fontSize['desktop']} / ${typographyData.headline.lineHeight}</div>
+					<div className="code"> {typographyData.headline.fontWeight} / size: {typographyData.headline.fontSize[deviceMode]} / line-height: {typographyData.headline.lineHeight}</div>
 				  </div>
 				  <div className="typo" style={{'fontFamily': item.font.name}}>
 					<div className="headline-second">Headline 2</div>
-					<div className="code">Bold / size: 36px / line-height: 1.3</div>
+					<div className="code">{typographyData.headlineSecond.fontWeight} / size: {typographyData.headlineSecond.fontSize[deviceMode]} / line-height: {typographyData.headlineSecond.lineHeight}</div>
 				  </div>
 				  <div className="typo" style={{'fontFamily': item.font.name}}>
 					<div className="subheadline">Subheadline</div>
-					<div className="code">Regular / size: 24px / line-height: 1.5</div>
+					<div className="code">{typographyData.subheadline.fontWeight} / size: {typographyData.subheadline.fontSize[deviceMode]} / line-height: {typographyData.subheadline.lineHeight}</div>
 				  </div>
 				  <div className="typo" style={{'fontFamily': item.font.name}}>
 					<div className="text-muted">Label text muted</div>
-					<div className="code">Bold / size: 18px / line-height: 1.5</div>
+					<div className="code">{typographyData.textMuted.fontWeight} / size: {typographyData.textMuted.fontSize[deviceMode]} / line-height: {typographyData.textMuted.lineHeight}</div>
 				  </div>
 				  <div className="typo" style={{'fontFamily': item.font.name}}>
 					<div className="text">Main body text</div>
-					<div className="code">Regular / size: 14px / line-height: 1.5</div>
+					<div className="code">{typographyData.text.fontWeight} / size: {typographyData.text.fontSize[deviceMode]} / line-height: {typographyData.text.lineHeight}</div>
 				  </div>
 				</div>
 				<div className="block block-buttons">
@@ -226,24 +238,24 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
 					Buttons
 				  </h5>
 				  <div className="row" style={{'fontFamily': item.font.name}}>
-					<div className="btn" style={{'background': item.colors.palette[0]}}>
+					<div className="btn" style={{'background': item.colors[activePalette][0]}}>
 					  primary
 					</div>
-					<div className="btn is-hover" style={{'background': item.colors.palette[0]}}>
+					<div className="btn is-hover" style={{'background': item.colors[activePalette][0]}}>
 					  hover
 					</div>
-					<div className="btn is-disabled" style={{'background': item.colors.palette[0]}}>
+					<div className="btn is-disabled" style={{'background': item.colors[activePalette][0]}}>
 					  disabled
 					</div>
 				  </div>
 				  <div className="row" style={{'fontFamily': item.font.name}}>
-					<div className="btn" style={{'background': item.colors.palette[1]}}>
+					<div className="btn" style={{'background': item.colors[activePalette][1]}}>
 					  secondary
 					</div>
-					<div className="btn is-hover" style={{'background': item.colors.palette[1]}}>
+					<div className="btn is-hover" style={{'background': item.colors[activePalette][1]}}>
 					  hover
 					</div>
-					<div className="btn is-disabled" style={{'background': item.colors.palette[1]}}>
+					<div className="btn is-disabled" style={{'background': item.colors[activePalette][1]}}>
 					  disabled
 					</div>
 				  </div>
@@ -270,7 +282,7 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
 					</div>
 					<div className="input">
 					  <label htmlFor='input-focus'>Focus input</label>
-					  <input className='input-field' style={{'borderColor': item.colors.palette[0]}} type="text" id='input-focus'
+					  <input className='input-field' style={{'borderColor': item.colors[activePalette][0]}} type="text" id='input-focus'
 							 readOnly value='Typed something'/>
 					</div>
 					<div className="input">
@@ -283,7 +295,7 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
 				  <h5 className="subheadline--content">
 					notification
 				  </h5>
-				   <div className="notification notification-primary" style={{'fontFamily': item.font.name, 'background': item.colors.palette[0]}}>
+				   <div className="notification notification-primary" style={{'fontFamily': item.font.name, 'background': item.colors[activePalette][0]}}>
 					 Message notification
 				   </div>
 				  <div className="notification notification-error" style={{'fontFamily': item.font.name}}>
