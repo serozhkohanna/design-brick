@@ -1,0 +1,18 @@
+@import "src/assets/variables";
+
+.tooltip {
+  width: 370px;
+  height: 65px;
+  background: pink;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  box-shadow: 0 0 15px rgba(#444444, .15);
+
+  &.INFO {
+    background: #ffff;
+    border-radius: $border-radius;
+    border-bottom: 5px solid #EDE5F1;
+  }
+}
