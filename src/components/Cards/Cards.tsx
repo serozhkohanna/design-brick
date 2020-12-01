@@ -75,7 +75,7 @@ const Cards: FC<Props> = ({designData, typographyData, setTooltip, shiftTooltip}
 			  </div>
 			</div>
 			<div className="preview-button" onClick={handlePreviewOpen}>
-			  <img className='preview-icon' src={EyeIcon} alt="eye-open"/>
+			  <img className='preview-icon' src={isPreviewOpen ? EyeCloseIcon : EyeIcon} alt="eye"/>
 			  preview
 			</div>
 		  </div>
