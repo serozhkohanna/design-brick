@@ -6,18 +6,21 @@ import CopyIcon from '../../assets/icons/copy.svg';
 import { connect } from "react-redux";
 import { Design, Typography } from "../../constants/interfaces";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { setTooltip, shiftTooltip } from "../../actions/action";
+import { INFO } from "../../constants/constants";
 
 interface Props {
   designData: Design,
-  typographyData: Typography
+  typographyData: Typography,
+  setTooltip: Function,
+  shiftTooltip: Function
 }
 
-const Cards: FC<Props> = ({designData, typographyData}) => {
+const Cards: FC<Props> = ({designData, typographyData, setTooltip, shiftTooltip}) => {
   console.log(typographyData, 'typo data');
   const [deviceMode, setDevice] = useState('desktop');
   const [nightMode, setNightMode] = useState(false);
   const [isPreviewOpen, setPreview] = useState(false);
-  const [isCopied, setCopy] = useState(false);
   const [activePalette, setActivePalette] = useState('palette');
 
   const handlePreviewOpen = () => {
@@ -33,11 +36,10 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
   }
 
   const handleCopy = () => {
-	setCopy(true);
-	console.log('copied to clipboard');
-	setTimeout(function () {
-	  setCopy(false)
-	}, 2000);
+	setTooltip({message: 'Copied to clipboard!', type: INFO });
+	setTimeout(function (){
+	  shiftTooltip();
+	}, 3000)
   }
 
   const handlePaletteActive = (palette) => {
@@ -172,7 +174,6 @@ const Cards: FC<Props> = ({designData, typographyData}) => {
 						  d="M11.5909 6.81819C11.2143 6.81819 10.9091 7.12347 10.9091 7.50002V13.6364H1.36362V4.09092H7.49999C7.87654 4.09092 8.18181 3.78564 8.18181 3.40909C8.18181 3.03254 7.87654 2.72729 7.49999 2.72729H0.681825C0.305273 2.72729 0 3.03257 0 3.40912V14.3182C0 14.6947 0.305273 15 0.681825 15H11.5909C11.9675 15 12.2727 14.6947 12.2727 14.3182V7.50002C12.2727 7.12347 11.9674 6.81819 11.5909 6.81819Z"
 						  fill="#444444"/>
 					  </svg>
-					  {isCopied && <p className='copy-text'>Copied!</p>}
 					</button>
 				  </CopyToClipboard>
 				</div>
@@ -322,4 +323,9 @@ const mapStateToProps = ({design, typography}) => {
   }
 }
 
-export default connect(mapStateToProps)(Cards);
+const mapDispatchToProps = {
+  setTooltip,
+  shiftTooltip
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cards);

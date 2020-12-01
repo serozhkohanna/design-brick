@@ -35,6 +35,7 @@ export interface Typography {
 }
 
 export interface Tooltip {
+  id: number;
   type: string;
   message: string;
 }

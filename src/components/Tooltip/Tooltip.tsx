@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Tooltip: FC<Props> = ({type, message}) => {
-  return <div className='tooltip'>tooltip message</div>
+  return <div className='tooltip'>{message}</div>
 }
 
 export default Tooltip;

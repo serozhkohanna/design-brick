@@ -1,0 +1,11 @@
+import { SET_TOOLTIP, SHIFT_TOOLTIP } from "../constants/constants";
+
+export const setTooltip = payload => ({
+  type: SET_TOOLTIP,
+  payload
+})
+
+export const shiftTooltip = payload => ({
+  type: SHIFT_TOOLTIP,
+  payload
+})

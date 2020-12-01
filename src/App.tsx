@@ -5,12 +5,19 @@ import Hero from "./components/Hero/Hero";
 import Footer from "./components/Footer/Footer";
 import Cards from './components/Cards/Cards';
 import Tooltip from "./components/Tooltip/Tooltip";
+import { connect } from "react-redux";
 
-function App() {
+function App({tooltipData}) {
+  console.log(tooltipData, 'data');
+
   return (
     <div className="page">
       <Header/>
-      <Tooltip/>
+      <div className="tooltips">
+        {tooltipData?.map((item, i) => {
+          return <Tooltip key={i} message={item.message}/>
+        })}
+      </div>
       <div className="page-content">
         <div className="container">
           <Hero/>
@@ -22,4 +29,10 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = ({tooltip}) => {
+  return {
+    tooltipData: tooltip.tooltips
+  }
+}
+
+export default connect(mapStateToProps)(App);
