@@ -2,12 +2,12 @@ import React, { FC } from 'react';
 import './Tooltip.scss';
 
 interface Props {
-  type?: string;
-  message?: string;
+  type: string;
+  message: string;
 }
 
 const Tooltip: FC<Props> = ({type, message}) => {
-  return <div className='tooltip'>{message}</div>
+  return <div className={`tooltip ${type}`}>{message}</div>
 }
 
 export default Tooltip;

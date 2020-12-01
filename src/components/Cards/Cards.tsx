@@ -39,7 +39,7 @@ const Cards: FC<Props> = ({designData, typographyData, setTooltip, shiftTooltip}
 	setTooltip({message: 'Copied to clipboard!', type: INFO });
 	setTimeout(function (){
 	  shiftTooltip();
-	}, 3000)
+	}, 5000)
   }
 
   const handlePaletteActive = (palette) => {
