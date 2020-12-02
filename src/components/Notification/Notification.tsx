@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import './Notification.scss';
 import StarIcon from '../../assets/icons/star.svg';
 
@@ -9,10 +9,16 @@ interface Props {
 }
 
 const Notification: FC<Props> = ({text, btnText, setClick}) => {
+  const [isAnimated, setAnimation] = useState(false);
+  const handleBtn = () => {
+	setClick();
+	setAnimation(true);
+  }
+
   return <div className='notification'>
-	<img className='icon' src={StarIcon} alt="star-icon"/>
+	<img className={`icon ${isAnimated && 'is-spin'}`} src={StarIcon} alt="star-icon"/>
 	<p>{text}</p>
-	<button className="btn-link" onClick={() => setClick()}>{btnText}</button>
+	{!isAnimated && <button className="btn-link" onClick={handleBtn}>{btnText}</button>}
   </div>
 }
 

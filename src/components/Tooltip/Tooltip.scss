@@ -9,10 +9,24 @@
   align-items: center;
   font-size: 12px;
   box-shadow: 0 0 15px rgba(#444444, .15);
+  position: relative;
 
   &.INFO {
     background: #ffff;
     border-radius: $border-radius;
     border-bottom: 5px solid #EDE5F1;
+  }
+
+  .btn-close {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+    }
   }
 }

@@ -1,4 +1,4 @@
-import { SET_TOOLTIP, SHIFT_TOOLTIP } from "../constants/constants";
+import { SET_TOOLTIP, SHIFT_TOOLTIP, REMOVE_TOOLTIP } from "../constants/constants";
 
 const initialState = {
   tooltips: []
@@ -13,6 +13,13 @@ export default function tooltip(state = initialState, action) {
 	case SHIFT_TOOLTIP:
 	  return {
 		...state, tooltips: state.tooltips.slice(1, -1)
+	  }
+	case REMOVE_TOOLTIP:
+	  return {
+	    ...state,
+		tooltips: state.tooltips.filter((item, i) => {
+		  return i !== action.payload
+		})
 	  }
   }
   return state;
