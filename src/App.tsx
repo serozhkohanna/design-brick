@@ -15,7 +15,7 @@ function App({tooltipData}) {
       <Header/>
       <div className="tooltips">
         {tooltipData?.map((item, i) => {
-          return <Tooltip type={item.type} key={i} message={item.message}/>
+          return <Tooltip type={item.type} key={i} index={i} message={item.message}/>
         })}
       </div>
       <div className="page-content">
