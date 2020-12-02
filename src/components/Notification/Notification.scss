@@ -12,6 +12,12 @@
 
   .icon {
     margin-right: 20px;
+
+    &.is-spin {
+      animation-name: spin;
+      animation-duration: 2s;
+      animation-delay: .5s;
+    }
   }
 
   .btn-link {
@@ -20,4 +26,9 @@
     font-weight: 700;
     cursor: pointer;
   }
+}
+
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
 }
