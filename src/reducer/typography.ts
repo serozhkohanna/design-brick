@@ -6,7 +6,7 @@ const initialState: Typography = {
 	fontWeight: 'bold',
 	fontSize: {
 	  desktop: '48px',
-	  mobile: '40px'
+	  mobile: '35px'
 	}
   },
   headlineSecond: {
@@ -14,7 +14,7 @@ const initialState: Typography = {
 	fontWeight: 'bold',
 	fontSize: {
 	  desktop: '36px',
-	  mobile: '30px'
+	  mobile: '25px'
 	}
   },
   subheadline: {
