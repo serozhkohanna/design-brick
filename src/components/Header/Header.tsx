@@ -7,7 +7,7 @@ const Header = () => {
   return <header>
 	<h1>Brick</h1>
 	<p className={`text ${isVisible && 'is-visible'}`}>
-	  Library with inspirational templates for you websites!
+	  LIBRARY WITH INSPIRATIONAL UI combinations FOR YOU WEBSITES!
 	</p>
   </header>
 }
